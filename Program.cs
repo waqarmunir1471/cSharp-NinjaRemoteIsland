@@ -7,20 +7,27 @@ namespace cSharp_NinjaRemoteIsland
     {
         static void Main(string[] args)
         {
-            ConsoleYellow("********NINJA: REMOTE ISLAND********");
+            ConsoleRed("********NINJA: REMOTE ISLAND********");
 
             Hero player = PlayerSetup();
             
-            ConsoleYellow($"You, {player.Name}, decided to take cruise around the Pacific!  Unfortunately, there was a incident involving a wrong turn and a huge wave.  You blacked out and woke up to find yourself on a remote mysterious island.\n\nNow you must get to the beach so you can send out a distress signal and get back home.  What dangers and mysteries lurk within the jungle island?  Will you make it to the beach safely?  Is this the island with all the dinosaurs?");
+            ConsoleRed($"You, {player.Name}, decided to take cruise around the Pacific!  Unfortunately, there was a incident involving a wrong turn and a huge wave.  You blacked out and woke up to find yourself on a remote mysterious island.\n\nNow you must get to the beach so you can send out a distress signal and get back home.  What dangers and mysteries lurk within the jungle island?  Will you make it to the beach safely?  Is this the island with all the dinosaurs?\n\nPress Enter to Start");
+
+            ConsoleKey key  = Console.ReadKey(true).Key;
+            while(key != ConsoleKey.Enter)
+            {
+                key  = Console.ReadKey(true).Key;
+            }
+            Console.WriteLine("BEGIN YOUR ADVENTURE HERE!!!");
 
             //write a method that will create other team mates.
 
             // make a game(while) loop to run your game
         }
 
-        static void ConsoleYellow(string text)
+        static void ConsoleRed(string text)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(text);
             Console.ResetColor();
         }
